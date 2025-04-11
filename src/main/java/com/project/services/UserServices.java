@@ -1,6 +1,8 @@
 package com.project.services;
 
 import com.project.dao.UserDao;
+import com.project.dto.UserDto;
+import com.project.mapper.UserMapper;
 import com.project.model.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,9 +34,10 @@ public class UserServices {
        userDao.deleteById(id);
    }
 
-   public User findById(int id) {
-       return userDao.findById(id).get();
+   public UserDto findById(int id) {
+     return UserMapper.getUserDto(userDao.findById(id).get());
    }
+
 
    public void deleteAll() {
        userDao.deleteAll();

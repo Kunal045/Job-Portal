@@ -1,6 +1,7 @@
 package com.project.controller;
 
 import com.project.dao.UserDao;
+import com.project.dto.UserDto;
 import com.project.model.User;
 import com.project.services.UserServices;
 import lombok.AllArgsConstructor;
@@ -22,8 +23,8 @@ public class UserController {
 
 
     @GetMapping(value = "/user/{id}", produces = "application/json")
-    public User getUserById(@PathVariable int id) {
-        User userById = userServices.findById(id);
+    public UserDto getUserById(@PathVariable("id") int id) {
+        UserDto userById = userServices.findById(id);
         return userById;
     }
 

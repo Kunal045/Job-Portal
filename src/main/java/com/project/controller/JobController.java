@@ -1,10 +1,9 @@
 package com.project.controller;
 
-import com.project.dao.JobDao;
+import com.project.dto.JobDto;
 import com.project.model.Job;
 import com.project.services.JobServices;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,13 +17,11 @@ private JobServices jobServices;
 
    @GetMapping
    public List<Job> getAllJobs() {
-       System.out.println("getAllJobs ");
-
        return jobServices.findAll();
    }
 
   @GetMapping("/{id}")
-   public Job getJobById(@PathVariable("id") int id) {
+   public JobDto getJobById(@PathVariable("id") int id) {
        return jobServices.findById(id);
    }
 

@@ -1,15 +1,13 @@
 package com.project.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 @ToString
 @Entity
 @Table(name = "job")
@@ -22,10 +20,13 @@ public class Job {
     private String description;
     private String company;
     private String location;
+
     @Enumerated(EnumType.STRING)
     private EmploymentType employmenttype;
+
     @Enumerated(EnumType.STRING)
     private ExperienceType experiencetype;
+
     private String salaryRange;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
